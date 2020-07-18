@@ -44,7 +44,7 @@ class DogEnvironment:
         return next_obs, reward, done, debug
 
 
-    def get_obsevation(self):
+    def get_observation(self):
         '''
         Returns the observation 
         '''
