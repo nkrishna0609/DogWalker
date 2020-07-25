@@ -1,5 +1,5 @@
 import pybullet as p 
-import pybullet_data 
+import pybullet_data
 import time 
 import numpy as np 
 
@@ -10,20 +10,13 @@ class DogEnvironment:
 
     def __init__(self):
 
-        #TODO Everyone
+        client = p.connect(p.GUI)
 
-        #TODO connect to module using direct method 
-        client = ??? 
-        #TODO set timeout 
-        p.???
-        #TODO Add pybullet_data to search path 
-        p.????
+        p.setTimeOut(2)
+        p.setGravity(0,0,-9.81)
 
-        #TODO Set gravity 
-        p.???
-
-        #TODO Spawn plane 
-        self.planeId = p.???
+        p.setAdditionalSearchPath(pybullet_data.getDataPath())
+        planeID = p.loadURDF("plane.urdf")
 
         pass
 
@@ -48,7 +41,8 @@ class DogEnvironment:
         '''
         Returns the observation 
         '''
-        #TODO Everyone
+        #dog in this case is the loaded model. The "state" can be the dog's position and orientation. We can also get velocities, if they are important for the state.
+        # state = p.getBasePositionAndOrientation(self.dog)
         
         return state
 
@@ -57,7 +51,7 @@ class DogEnvironment:
         '''
         Calculates and returns the reward that the agent maximizes
         '''
-        #TODO Everyone
+        #Not to sure on what the end goal of this dog is, so don't know what to maximize.
         return reward 
 
 
