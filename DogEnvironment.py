@@ -10,7 +10,7 @@ class DogEnvironment:
 
     def __init__(self):
 
-        client = p.connect(p.GUI)
+        client = p.connect(p.DIRECT)
 
         p.setTimeOut(2)
         p.setGravity(0,0,-9.81)
