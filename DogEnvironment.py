@@ -7,23 +7,33 @@ import numpy as np
 
 class DogEnvironment:
 
+    
 
     def __init__(self):
 
         #TODO Everyone
 
         #TODO connect to module using direct method 
-        client = ??? 
+        client = p.connect(p.DIRECT)
         #TODO set timeout 
-        p.???
+        p.setTimeOut(1)
         #TODO Add pybullet_data to search path 
-        p.????
+        p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
         #TODO Set gravity 
-        p.???
+        p.setGravity(0,0,-10)
 
         #TODO Spawn plane 
-        self.planeId = p.???
+        self.planeId = p.loadURDF("plane.udrf")
+
+        '''
+        Not sure if this was the place to do it but I spawned the agent as well
+        couldn't find a dog.udrf file so i spawned a r2d2 instead
+        '''
+        cubeStartPos = [0,0,1]
+        cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
+        boxId = p.loadURDF("r2d2.urdf",cubeStartPos, cubeStartOrientation)
+
 
         pass
 
@@ -49,7 +59,7 @@ class DogEnvironment:
         Returns the observation 
         '''
         #TODO Everyone
-        
+        state = p.getBasePositionAndOrientation(this.boxId)
         return state
 
 
